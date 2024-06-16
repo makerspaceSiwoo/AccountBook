@@ -7,4 +7,23 @@
 <body>
 	This is main page
 	
+	
+	
+	
+	<div id="ajax"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	console.log("jquery testing");
+	
+	$("#ajax").append(`<p>jquery start</p>`);
+	$.getJSON("/test/ajax", function(data){
+		$.each(data,function(index, item){
+			$("#ajax").append(`<p>${item.primarykey} / ${item.amount} </p>`);
+		})
+	}).fail(function(){
+		alert("error");
+	})
+	
+	
+</script>
 </body>
