@@ -28,8 +28,8 @@ public class StatisticsController {
 	
 	@GetMapping("/statistics/graph")
 	@ResponseBody
-	public String showGraph(@DateTimeFormat (pattern="yyyy-MM-dd") @RequestParam("start") Date start, 
-			@DateTimeFormat(pattern="yyyy-MM-dd") @RequestParam("end") Date end) {
+	public String showGraph(@RequestParam("start") @DateTimeFormat (pattern="yyyy-MM-dd") Date start, 
+			@RequestParam("end") @DateTimeFormat(pattern="yyyy-MM-dd") Date end) {
 		List<Map<String, Object>> alist = sservice.showGraph(start, end);
 		System.out.println(alist.get(0));
 		Gson g = new Gson();
